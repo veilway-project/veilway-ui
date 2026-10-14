@@ -7,4 +7,4 @@ The design system and the translations shared by the Veilway panel and apps.
 
 The core, the control API and its TypeScript client live in [veilway](https://github.com/veilway-project/veilway), and the docs in [veilway-docs](https://github.com/veilway-project/veilway-docs).
 
-Everything runs in containers, as `packages/ui/README.md` shows. Licence: Apache-2.0, see `LICENSE` and `NOTICE`. Security reports: see `SECURITY.md`.
+Everything runs in containers, as `packages/ui/README.md` shows. Licence: Apache-2.0, see `LICENSE` and `NOTICE`. Security reports: see `SECURITY.md`. Contributing: see `CONTRIBUTING.md` and `CLA.md`.
