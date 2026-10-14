@@ -1,0 +1,7 @@
+# Weekly version updates, grouped so one pull request covers each package. Security updates come on their own as soon as an advisory is published.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directories: ["/packages/ui", "/packages/i18n"]
+    schedule: {interval: weekly}
+    groups: {npm: {patterns: ["*"]}}
