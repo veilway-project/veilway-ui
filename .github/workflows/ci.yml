@@ -1,0 +1,25 @@
+name: ci
+on:
+  push:
+  pull_request:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package: [i18n, ui]
+    defaults:
+      run:
+        working-directory: packages/${{ matrix.package }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          cache: npm
+          cache-dependency-path: packages/${{ matrix.package }}/package-lock.json
+      - run: npm ci
+      - run: npm run check
+      - run: npm test
+      - if: matrix.package == 'ui'
+        run: npm run build
