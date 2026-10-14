@@ -13,17 +13,17 @@ The design system and the translations shared by the Veilway panel and apps.
 </p>
 
 <p align="center">
-<a href="LICENSE"><img alt="licence" src="https://img.shields.io/badge/licence-Apache--2.0-blue"></a>
+<a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-Apache--2.0-blue"></a>
 </p>
 
 ## What it is
 
 Veilway is an open-source VPN platform for people on censored networks: a Rust core, a web panel and first-party apps. This repository holds what the panel and the apps share on screen, so they look and behave like one product.
 
-- Design tokens as CSS variables, generated from one token file, with contrast rules that the tests check on every colour a ground can take.
+- Design tokens as CSS variables, generated from one token file, with contrast rules that the tests check on every color a ground can take.
 - The glass material: four layers (sheet, chrome, popover, dialog), each with a known backdrop behind it, and solid surfaces in their place when the system asks for reduced transparency or the browser has no `backdrop-filter`.
 - React components and charts built on them.
-- The theme validator. A theme file is colour tokens only and is treated as hostile input: a tint too thin for its own backdrop is raised, and a backdrop too bright for text is refused.
+- The theme validator. A theme file is color tokens only and is treated as hostile input: a tint too thin for its own backdrop is raised, and a backdrop too bright for text is refused.
 - A gallery app that shows every part in dark and light, English and Persian.
 - English and Persian, with right-to-left layout, ICU plurals, Persian digits and Jalali dates.
 
@@ -86,6 +86,6 @@ The last command serves the gallery at `http://127.0.0.1:5173`. The screenshot c
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) first. A first pull request asks you to sign the [CLA](CLA.md) once. Report vulnerabilities privately as described in [SECURITY.md](SECURITY.md), never in a public issue.
 
-## Licence
+## License
 
-Apache-2.0, see [LICENSE](LICENSE) and [NOTICE](NOTICE). The licence does not cover the name: see [TRADEMARKS.md](TRADEMARKS.md).
+Apache-2.0, see [LICENSE](LICENSE) and [NOTICE](NOTICE). The license does not cover the name: see [TRADEMARKS.md](TRADEMARKS.md).
