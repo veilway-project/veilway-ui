@@ -18,6 +18,9 @@ jobs:
           node-version: lts/*
           cache: npm
           cache-dependency-path: packages/${{ matrix.package }}/package-lock.json
+      # The ui package imports the i18n package's source, which needs i18n's own dependencies.
+      - if: matrix.package == 'ui'
+        run: npm ci --prefix ../i18n
       - run: npm ci
       - run: npm run check
       - run: npm test
