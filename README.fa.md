@@ -94,6 +94,8 @@ docker run --rm $V -w /work/packages/ui -p 127.0.0.1:5173:5173 node:22 npm run d
 
 ## مشارکت و امنیت
 
+پرسش‌ها و کمک برای راه‌اندازی در [GitHub Discussions](https://github.com/veilway-project/veilway/discussions) جا دارند، به انگلیسی یا فارسی. Issues برای باگ‌ها و درخواست‌های مشخص است.
+
 اول [CONTRIBUTING.md](CONTRIBUTING.md) را بخوانید. در اولین pull request از شما خواسته می‌شود یک بار [CLA](CLA.md) را امضا کنید. آسیب‌پذیری‌ها را به شکل خصوصی و طبق [SECURITY.md](SECURITY.md) گزارش کنید، هرگز در issue عمومی.
 
 ## مجوز
