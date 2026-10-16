@@ -88,7 +88,7 @@ docker run --rm $V -w /work/packages/ui -p 127.0.0.1:5173:5173 node:22 npm run d
 
 ## مخزن‌ها
 
-- [veilway](https://github.com/veilway-project/veilway): هسته، API کنترل و کلاینت TypeScript آن، و برنامهٔ دسکتاپ.
+- [veilway](https://github.com/veilway-project/veilway): هسته، API کنترل و کلاینت TypeScript آن، و برنامه‌های دسکتاپ و اندروید.
 - [veilway-docs](https://github.com/veilway-project/veilway-docs): مشخصات پروتکل، مرجع پیکربندی و راهنماها، به فارسی و انگلیسی. سایت آن در [veilway-project.github.io/veilway-docs](https://veilway-project.github.io/veilway-docs/fa/) است.
 - veilway-ui: همین مخزن.
 

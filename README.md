@@ -78,7 +78,7 @@ The last command serves the gallery at `http://127.0.0.1:5173`. The screenshot c
 
 ## Repositories
 
-- [veilway](https://github.com/veilway-project/veilway): the core, the control API and its TypeScript client, and the desktop app.
+- [veilway](https://github.com/veilway-project/veilway): the core, the control API and its TypeScript client, and the desktop and Android apps.
 - [veilway-docs](https://github.com/veilway-project/veilway-docs): protocol spec, config reference and manuals, in English and Persian. The site is at [veilway-project.github.io/veilway-docs](https://veilway-project.github.io/veilway-docs/).
 - veilway-ui: this repository.
 
