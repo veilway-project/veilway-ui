@@ -74,7 +74,7 @@ The last command serves the gallery at `http://127.0.0.1:5173`. The screenshot c
 
 ## Status
 
-> **Early.** The look is approved and the checks pass, but nothing uses this yet. The panel and the apps will take it at a pinned version once they are built. How much the glass blur costs in an Android WebView is not measured yet.
+> **Early.** The look is approved and the checks pass. The panel and both apps, desktop and Android, use it. How much the glass blur costs in an Android WebView is not measured yet.
 
 ## Repositories
 
