@@ -5,14 +5,14 @@ import {applyTheme} from "../theme/apply.ts";
 import type {Scheme, Theme} from "../theme/tokens.ts";
 
 // scheme "system", material "auto" and motion "auto" follow the OS. A theme, when set, decides the scheme.
-export type UiSettings = {locale: Locale, scheme: Scheme | "system", material: "auto" | "glass" | "solid", motion: "auto" | "reduced", persianDigits: boolean, jalali: boolean, theme: Theme | null};
+export type UiSettings = {locale: Locale, scheme: Scheme | "system", material: "auto" | "glass" | "solid", motion: "auto" | "reduced", persianDigits: boolean, jalali: boolean, theme: Theme | null, hour12?: boolean};
 export const DEFAULT_SETTINGS: UiSettings = {locale: "en", scheme: "system", material: "auto", motion: "auto", persianDigits: true, jalali: true, theme: null};
 
 const I18nContext = createContext<I18n<string> | null>(null);
 
 // Owns the document: language, direction, colour scheme, material and motion are attributes on <html>, so dialogs and menus that render outside the app root get them too.
 export function UiProvider<K extends string = never>({settings, extra, children}: {settings: UiSettings, extra?: Record<Locale, Record<K, string>>, children: ReactNode}) {
-	const i18n = useMemo(() => createI18n({locale: settings.locale, persianDigits: settings.persianDigits, jalali: settings.jalali, extra}), [settings.locale, settings.persianDigits, settings.jalali, extra]);
+	const i18n = useMemo(() => createI18n({locale: settings.locale, persianDigits: settings.persianDigits, jalali: settings.jalali, hour12: settings.hour12, extra}), [settings.locale, settings.persianDigits, settings.jalali, settings.hour12, extra]);
 	useEffect(() => {
 		const root = document.documentElement;
 		root.classList.add("vw-root");

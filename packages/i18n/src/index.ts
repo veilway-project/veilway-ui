@@ -6,7 +6,7 @@ export type {MessageKey};
 export type Locale = "en" | "fa";
 export type Direction = "ltr" | "rtl";
 // Persian digits and the Jalali calendar only apply to Persian, where both are on unless turned off.
-export type FormatOptions = {locale: Locale, persianDigits?: boolean, jalali?: boolean};
+export type FormatOptions = {locale: Locale, persianDigits?: boolean, jalali?: boolean, hour12?: boolean};
 export type Values = Record<string, string | number | Date>;
 export type Amount = {value: string, unit: string, text: string};
 export type I18n<K extends string = never> = {
@@ -63,6 +63,6 @@ export function createI18n<K extends string = never>(options: FormatOptions & {e
 			return {value: base.value, unit, text: t("unit.amount", {value: base.value, unit})};
 		},
 		date: (date, format) => new Intl.DateTimeFormat(tag, format ?? {year: "numeric", month: "long", day: "numeric"}).format(date),
-		time: (date, seconds) => new Intl.DateTimeFormat(tag, {hour: "2-digit", minute: "2-digit", second: seconds ? "2-digit" : undefined, hourCycle: "h23"}).format(date)
+		time: (date, seconds) => new Intl.DateTimeFormat(tag, {hour: "2-digit", minute: "2-digit", second: seconds ? "2-digit" : undefined, ...(options.hour12 === undefined ? {hourCycle: "h23"} : {hour12: options.hour12})}).format(date)
 	};
 }
