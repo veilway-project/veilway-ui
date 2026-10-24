@@ -19,12 +19,12 @@ The design system and the translations shared by the Veilway panel and apps.
 
 ## What it is
 
-Veilway is an open-source VPN platform for people on censored networks: a Rust core, a web panel and first-party apps. This repository holds what the panel and the apps share on screen, so they look and behave like one product.
+Veilway is an open-source VPN platform for people on censored networks. It has a Rust core, a web panel and first-party apps. This repository holds what the panel and the apps share on screen, so they look and behave like one product.
 
-- Design tokens as CSS variables, generated from one token file, with contrast rules that the tests check on every color a ground can take.
-- The glass material: four layers (sheet, chrome, popover, dialog), each with a known backdrop behind it, and solid surfaces in their place when the system asks for reduced transparency or the browser has no `backdrop-filter`.
+- Design tokens as CSS variables, generated from one token file. Contrast tests check every color a background can take.
+- The glass material: four layers (sheet, chrome, popover, dialog), each with a known backdrop. Solid surfaces replace the glass when the system asks for reduced transparency, or when the browser has no `backdrop-filter`.
 - React components and charts built on them.
-- The theme validator. A theme file is color tokens only and is treated as hostile input: a tint too thin for its own backdrop is raised, and a backdrop too bright for text is refused.
+- The theme validator. A theme file holds color tokens only, and it is treated as hostile input. A tint too thin for its backdrop is raised. A backdrop too bright for text is refused.
 - A gallery app that shows every part in dark and light, English and Persian.
 - English and Persian, with right-to-left layout, ICU plurals, Persian digits and Jalali dates.
 
@@ -41,14 +41,14 @@ Veilway is an open-source VPN platform for people on censored networks: a Rust c
 </tr>
 </table>
 
-<p align="center"><sub>Screenshots of the gallery: a client window in dark English and light Persian, and the page that puts a client window next to a panel page, with solid surfaces in place of the glass. Every name, address and number in them is made up (example.net).</sub></p>
+<p align="center"><sub>Screenshots of the gallery. The first two show a client window in dark English and light Persian. The last two show a client window next to a panel page, with solid surfaces in place of the glass. Every name, address and number in them is made up (example.net).</sub></p>
 
 ## What it holds
 
 | Path | Package | What it is |
 |---|---|---|
 | `packages/ui` | `@veilway/ui` | Tokens, the glass material, components, charts, the theme validator and its JSON schema, and the gallery. Its [README](packages/ui/README.md) explains the glass and its contrast rule. |
-| `packages/i18n` | `@veilway/i18n` | English and Persian locale packs and helpers for direction, plurals, Persian digits and Jalali dates. No React. |
+| `packages/i18n` | `@veilway/i18n` | English and Persian locale packs, and helpers for direction, plurals, Persian digits and Jalali dates. No React. |
 
 ## Checks and the gallery
 
@@ -61,16 +61,16 @@ docker run --rm $V -w /work/packages/ui node:22 sh -c "npm ci && npm run check &
 docker run --rm $V -w /work/packages/ui -p 127.0.0.1:5173:5173 node:22 npm run dev
 ```
 
-The last command serves the gallery at `http://127.0.0.1:5173`. The screenshot command, which needs a Playwright image, is in [packages/ui/README.md](packages/ui/README.md).
+The last command serves the gallery at `http://127.0.0.1:5173`. The screenshot command needs a Playwright image. It is in [packages/ui/README.md](packages/ui/README.md).
 
 ## Design rules
 
-[CONTRIBUTING.md](CONTRIBUTING.md) has the full list. The ones a change is most likely to break:
+[CONTRIBUTING.md](CONTRIBUTING.md) has the full list. These are the rules a change is most likely to break:
 
 - A visible change comes with screenshots in dark and light, English and Persian.
 - A theme file and a locale pack are hostile input. A change to the theme validator or the locale loader comes with tests that feed it bad files.
-- No pill shapes, no uppercase labels above headings, no emoji, small consistent corner radii.
-- Apps never show a rating word for a connection: only its name, and a plain warning when it is not secure.
+- No pill shapes, no uppercase labels above headings, no emoji, and small consistent corner radii.
+- Apps never show a rating word for a connection. They show only its name, and a plain warning when it is not secure.
 - No blank lines inside function bodies, double quotes, one-liners where they fit, and never a code formatter.
 
 ## Status
@@ -87,8 +87,8 @@ The last command serves the gallery at `http://127.0.0.1:5173`. The screenshot c
 
 Questions and help with setup go to [GitHub Discussions](https://github.com/veilway-project/veilway/discussions), in English or Persian. Issues are for bugs and concrete feature requests.
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) first. A first pull request asks you to sign the [CLA](CLA.md) once. Report vulnerabilities privately as described in [SECURITY.md](SECURITY.md), never in a public issue.
+Read [CONTRIBUTING.md](CONTRIBUTING.md) first. Your first pull request asks you to sign the [CLA](CLA.md) once. Report vulnerabilities privately, as described in [SECURITY.md](SECURITY.md). Never report them in a public issue.
 
 ## License
 
-Apache-2.0, see [LICENSE](LICENSE) and [NOTICE](NOTICE). The license does not cover the name: see [TRADEMARKS.md](TRADEMARKS.md).
+Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE). The license does not cover the name. See [TRADEMARKS.md](TRADEMARKS.md).
