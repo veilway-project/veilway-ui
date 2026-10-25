@@ -39,14 +39,18 @@ export function SecretField({label, hint, error, optional, value, onChange, ...r
 	</div>}</Field>;
 }
 
-export type Option = {value: string, label: string, detail?: string};
+/** `group` puts options under a heading: options with the same group that follow one another are shown together. */
+export type Option = {value: string, label: string, detail?: string, group?: string};
 
 export function SelectField({label, hint, error, optional, value, onChange, options, disabled}: FieldProps & {value: string, onChange: (value: string) => void, options: Option[], disabled?: boolean}) {
 	const {t} = useI18n();
 	return <Field label={label} hint={hint} error={error} optional={optional}>{ids => <SelectPrimitive.Root value={value} onValueChange={onChange} disabled={disabled}>
 		<SelectPrimitive.Trigger {...ids} className="vw-input vw-select"><SelectPrimitive.Value placeholder={t("select.placeholder")}/><SelectPrimitive.Icon><Icon name="chevronDown"/></SelectPrimitive.Icon></SelectPrimitive.Trigger>
 		<SelectPrimitive.Portal><SelectPrimitive.Content className="vw-glass vw-menu" data-layer="popover" position="popper" sideOffset={4}><SelectPrimitive.Viewport>
-			{options.map(o => <SelectPrimitive.Item key={o.value} value={o.value} className="vw-menu-item"><SelectPrimitive.ItemText>{o.label}</SelectPrimitive.ItemText>{o.detail && <span className="vw-muted vw-small">{o.detail}</span>}<SelectPrimitive.ItemIndicator className="vw-menu-check"><Icon name="check"/></SelectPrimitive.ItemIndicator></SelectPrimitive.Item>)}
+			{options.reduce<{group: string | undefined, items: Option[]}[]>((runs, o) => { const last = runs[runs.length - 1]; if (last && last.group === o.group) last.items.push(o); else runs.push({group: o.group, items: [o]}); return runs; }, []).map((run, i) => {
+				const items = run.items.map(o => <SelectPrimitive.Item key={o.value} value={o.value} className="vw-menu-item"><SelectPrimitive.ItemText>{o.label}</SelectPrimitive.ItemText>{o.detail && <span className="vw-muted vw-small">{o.detail}</span>}<SelectPrimitive.ItemIndicator className="vw-menu-check"><Icon name="check"/></SelectPrimitive.ItemIndicator></SelectPrimitive.Item>);
+				return run.group === undefined ? items : <SelectPrimitive.Group key={"g" + i}><SelectPrimitive.Label className="vw-menu-label">{run.group}</SelectPrimitive.Label>{items}</SelectPrimitive.Group>;
+			})}
 		</SelectPrimitive.Viewport></SelectPrimitive.Content></SelectPrimitive.Portal>
 	</SelectPrimitive.Root>}</Field>;
 }

@@ -72,11 +72,12 @@
 .vw-input-action:hover, .vw-input-action[aria-pressed="true"] { color: var(--c-text); background: var(--hover); }
 .vw-select { display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); text-align: start; cursor: pointer; }
 .vw-select[data-placeholder] { color: var(--c-text-muted); }
-.vw-menu { border-radius: var(--r-2); min-inline-size: var(--radix-select-trigger-width); max-block-size: var(--radix-select-content-available-height); padding: var(--s-1); z-index: 60; }
-.vw-menu-item { display: flex; align-items: center; gap: var(--s-2); min-block-size: var(--control-h); padding-inline: var(--s-2) var(--s-6); border-radius: var(--r-1); position: relative; cursor: pointer; user-select: none; }
+.vw-menu { border-radius: var(--r-2); min-inline-size: var(--radix-select-trigger-width); max-inline-size: min(var(--radix-select-content-available-width, 100vw), max(var(--radix-select-trigger-width), 28rem)); max-block-size: var(--radix-select-content-available-height); padding: var(--s-1); z-index: 60; }
+.vw-menu-item { display: flex; flex-wrap: wrap; align-items: center; column-gap: var(--s-2); row-gap: 0; padding-block: var(--s-1); min-block-size: var(--control-h); padding-inline: var(--s-2) var(--s-6); border-radius: var(--r-1); position: relative; cursor: pointer; user-select: none; }
 .vw-menu-item[data-highlighted] { background: var(--hover); outline: none; }
 .vw-menu-item[data-state="checked"] { font-weight: var(--weight-strong); }
 .vw-menu-check { position: absolute; inset-inline-end: var(--s-2); color: var(--c-accent-ink); }
+.vw-menu-label { padding: var(--s-2) var(--s-2) var(--s-1); color: var(--c-text-muted); font-size: var(--text-2); font-weight: var(--weight-strong); }
 
 .vw-toggle-row { display: flex; align-items: center; justify-content: space-between; gap: var(--s-4); }
 .vw-toggle-row > div { display: grid; gap: 2px; }
